@@ -10,6 +10,7 @@ extern controller Controller2;
 extern motor turret;
 extern motor shoulder;
 extern motor elbow;
+extern inertial rotGyro;
 
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.

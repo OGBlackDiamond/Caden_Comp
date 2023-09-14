@@ -9,6 +9,7 @@
 
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // Robot Configuration:
+// [Name]               [Type]        [Port(s)]
 // leftDriveTrain       motor         11              
 // rightDriveTrain      motor         20              
 // Controller1          controller                    
@@ -16,6 +17,7 @@
 // turret               motor         16              
 // shoulder             motor         15              
 // elbow                motor         14              
+// rotGyro              inertial      10              
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 // Caden bot
@@ -32,20 +34,27 @@
 #include "vex.h"
 #include "driver.cpp"
 #include "arm.cpp"
+#include "rotgyro.cpp"
 
 using namespace vex;
 
 // A global instance of competition
 competition Competition;
 
+// initialization of external classes
 class Driver;
 class Arm;
+class RotGyro;
 
 // the driver class
 Driver driver;
 
 // the arm class
 Arm arm;
+
+// the gyro class
+// the gyro is calibrated on initialization
+RotGyro rotationGyro;
 
 // define your global instances of motors and other devices here
 
@@ -97,6 +106,7 @@ void usercontrol(void) {
   while (1) {
     driver.driverControl();
     arm.manipulatorControl();
+    rotationGyro.accountForSpin();
     // leftDriveTrain.spin(forward);
     // rightDriveTrain.spin(forward);
     // This is the main execution loop for the user control program.
