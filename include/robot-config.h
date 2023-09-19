@@ -11,6 +11,8 @@ extern motor turret;
 extern motor shoulder;
 extern motor elbow;
 extern inertial rotGyro;
+extern motor flinger;
+extern motor hooker;
 
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.

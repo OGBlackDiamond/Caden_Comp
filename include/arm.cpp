@@ -7,9 +7,10 @@ class Arm {
   public:
 
     Arm() {
-      turret.setVelocity(100, percent);
+      turret.setVelocity(1, percent);
       shoulder.setStopping(hold);
       elbow.setStopping(hold);
+      flinger.setVelocity(100, percent);
     }
 
     void manipulatorControl() {
@@ -38,6 +39,11 @@ class Arm {
       } else {
         turret.stop();
       }
+
+      if (fling) {
+        flinger.spinFor(forward, 90, degrees);
+        flinger.spinFor(reverse, 90, degrees, false);
+      }
     }
 
     // destroys the class object
@@ -54,6 +60,8 @@ class Arm {
 
     int elbowSpin;
 
+    bool fling;
+
     void updateControls() {
       // updates the values that will spin the turret
       spinTurretLeft = Controller2.ButtonL2.pressing();
@@ -64,6 +72,8 @@ class Arm {
       // spins the motors accordingly
       elbow.setVelocity(elbowSpin, percent);
       shoulder.setVelocity(shoulderSpin, percent);
+      // updates the value that will fling the flinger
+      fling = Controller2.ButtonA.pressing() && !flinger.isSpinning();
     }
  
 

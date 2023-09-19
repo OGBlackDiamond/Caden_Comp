@@ -34,7 +34,7 @@
 #include "vex.h"
 #include "driver.cpp"
 #include "arm.cpp"
-#include "rotgyro.cpp"
+//#include "rotgyro.cpp"
 
 using namespace vex;
 
@@ -49,7 +49,7 @@ Arm arm;
 
 // the gyro class
 // the gyro is calibrated on initialization
-RotGyro rotationGyro;
+//RotGyro rotationGyro;
 
 // define your global instances of motors and other devices here
 
@@ -101,7 +101,7 @@ void usercontrol(void) {
   while (1) {
     driver.driverControl();
     arm.manipulatorControl();
-    rotationGyro.accountForSpin();
+    //rotationGyro.accountForSpin();
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo
     // values based on feedback from the joysticks.

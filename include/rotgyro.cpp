@@ -28,7 +28,7 @@ class RotGyro {
     }
 
     void spinTurret() {
-      turret.spinFor(forward, gyroOverflow(), degrees);
+      turret.spinFor(forward, gyroOverflow(), degrees, false);
     }
 
     void calibrate() {
