@@ -7,7 +7,7 @@ class Arm {
   public:
 
     Arm() {
-      turret.setVelocity(1, percent);
+      turret.setVelocity(100, percent);
       shoulder.setStopping(hold);
       elbow.setStopping(hold);
     }

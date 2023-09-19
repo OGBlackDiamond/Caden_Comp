@@ -41,11 +41,6 @@ using namespace vex;
 // A global instance of competition
 competition Competition;
 
-// initialization of external classes
-class Driver;
-class Arm;
-class RotGyro;
-
 // the driver class
 Driver driver;
 
@@ -107,8 +102,6 @@ void usercontrol(void) {
     driver.driverControl();
     arm.manipulatorControl();
     rotationGyro.accountForSpin();
-    // leftDriveTrain.spin(forward);
-    // rightDriveTrain.spin(forward);
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo
     // values based on feedback from the joysticks.

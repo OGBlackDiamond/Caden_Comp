@@ -37,9 +37,9 @@ class RotGyro {
 
     double gyroOverflow() {
       double rotationValue = relativeSpin - previousRelativeSpin;
-      if (rotationValue > 360) {
+      if (rotationValue > 340) {
         rotationValue -= 360;
-      } else if (rotationValue < 0) {
+      } else if (rotationValue < -340) {
         rotationValue += 360;
       }
 
