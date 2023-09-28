@@ -43,7 +43,7 @@ class Driver {
     bool hookUp;
     bool hookDown;
 
-    // update the controller values
+    // update the controller values 
     void updateControls() {
       // get the current reading from the stick values
       leftDrive = Controller1.Axis3.position();

@@ -2,10 +2,15 @@
 
 using namespace vex;
 
+/*
+  The arm class
+  This will put all of the control for the arm on controller two
+*/
 class Arm {
 
   public:
 
+    // set the stopping values and speeds of all the motors
     Arm() {
       turret.setVelocity(1, percent);
       shoulder.setStopping(hold);
@@ -55,16 +60,21 @@ class Arm {
     }
 
   private:
-
+    
+    // variables that spin the turret
     bool spinTurretLeft;
     bool spinTurretRight;
 
+    // the value to articulate the shoulder
     int shoulderSpin;
 
+    // the value to articulate the elbow
     int elbowSpin;
 
+    // value to fling the flinger
     bool fling;
 
+    // update all of the controller values
     void updateControls() {
       // updates the values that will spin the turret
       spinTurretLeft = Controller2.ButtonL2.pressing();
@@ -79,6 +89,8 @@ class Arm {
       fling = Controller2.ButtonA.pressing() && !flinger.isSpinning();
     }
  
+
+    // return the absolute value of a number
     double absoluteValue(double num) {
       if (num >= 0) {
         return num;
