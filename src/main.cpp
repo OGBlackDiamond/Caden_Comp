@@ -1,3 +1,85 @@
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// leftDriveTrain       motor         11              
+// rightDriveTrain      motor         20              
+// Controller1          controller                    
+// Controller2          controller                    
+// turret               motor         16              
+// shoulder             motor         15              
+// elbow                motor         14              
+// flinger              motor         1               
+// hooker               motor         19              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// leftDriveTrain       motor         11              
+// rightDriveTrain      motor         20              
+// Controller1          controller                    
+// Controller2          controller                    
+// turret               motor         16              
+// shoulder             motor         15              
+// elbow                motor         14              
+// flinger              motor         1               
+// hooker               motor         19              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// leftDriveTrain       motor         11              
+// rightDriveTrain      motor         20              
+// Controller1          controller                    
+// Controller2          controller                    
+// turret               motor         16              
+// shoulder             motor         15              
+// elbow                motor         14              
+// rotGyro              inertial      10              
+// flinger              motor         1               
+// hooker               motor         19              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// leftDriveTrain       motor         11              
+// rightDriveTrain      motor         20              
+// Controller1          controller                    
+// Controller2          controller                    
+// turret               motor         16              
+// shoulder             motor         15              
+// elbow                motor         14              
+// rotGyro              inertial      10              
+// flinger              motor         1               
+// hooker               motor         19              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// leftDriveTrain       motor         11              
+// rightDriveTrain      motor         20              
+// Controller1          controller                    
+// Controller2          controller                    
+// turret               motor         16              
+// shoulder             motor         15              
+// elbow                motor         14              
+// rotGyro              inertial      10              
+// flinger              motor         1               
+// hooker               motor         19              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// leftDriveTrain       motor         11              
+// rightDriveTrain      motor         20              
+// Controller1          controller                    
+// Controller2          controller                    
+// turret               motor         16              
+// shoulder             motor         15              
+// elbow                motor         14              
+// rotGyro              inertial      10              
+// flinger              motor         1               
+// hooker               motor         19              
+// ---- END VEXCODE CONFIGURED DEVICES ----
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*    Module:       main.cpp                                                  */

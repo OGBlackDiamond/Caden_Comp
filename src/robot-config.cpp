@@ -15,8 +15,7 @@ controller Controller2 = controller(partner);
 motor turret = motor(PORT16, ratio18_1, false);
 motor shoulder = motor(PORT15, ratio36_1, false);
 motor elbow = motor(PORT14, ratio36_1, false);
-inertial rotGyro = inertial(PORT10);
-motor flinger = motor(PORT1, ratio6_1, false);
+motor flinger = motor(PORT1, ratio18_1, false);
 motor hooker = motor(PORT19, ratio18_1, false);
 
 // VEXcode generated functions

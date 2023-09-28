@@ -10,7 +10,6 @@ extern controller Controller2;
 extern motor turret;
 extern motor shoulder;
 extern motor elbow;
-extern inertial rotGyro;
 extern motor flinger;
 extern motor hooker;
 

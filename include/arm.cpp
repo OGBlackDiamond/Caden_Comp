@@ -19,19 +19,20 @@ class Arm {
       // move the motors
 
       // don't allow drift of the shoulder
-      if (shoulderSpin >= 10) {
+      if (absoluteValue(shoulderSpin) >= 10) {
         shoulder.spin(forward);
       } else {
         shoulder.stop();
       }
 
-      if (elbowSpin >= 10) {
+      // don't allow drift of the shoulder
+      if (absoluteValue(elbowSpin) >= 10) {
         elbow.spin(forward);
       } else {
         elbow.stop();
       }
 
-
+      // spin the turret
       if (spinTurretLeft) {
         turret.spin(reverse);
       } else if (spinTurretRight) {
@@ -40,9 +41,11 @@ class Arm {
         turret.stop();
       }
 
+      // fling the fling fling  
       if (fling) {
-        flinger.spinFor(forward, 90, degrees);
-        flinger.spinFor(reverse, 90, degrees, false);
+        flinger.spin(forward, 100, percent);
+      } else if (flinger.position(degrees) >= 180) {
+        flinger.spin(reverse, 50, percent);
       }
     }
 
@@ -76,5 +79,11 @@ class Arm {
       fling = Controller2.ButtonA.pressing() && !flinger.isSpinning();
     }
  
-
+    double absoluteValue(double num) {
+      if (num >= 0) {
+        return num;
+      } else {
+        return num * 1;
+      }
+    }
 };

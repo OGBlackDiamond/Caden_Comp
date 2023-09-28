@@ -2,6 +2,10 @@
 
 using namespace vex;
 
+/*
+  The driver class
+  All of the control for the driver will be placed on the first controller
+*/
 class Driver {
 
   public:
@@ -35,9 +39,11 @@ class Driver {
     int leftDrive;
     int rightDrive;
 
+    // variables that control the hook
     bool hookUp;
     bool hookDown;
 
+    // update the controller values
     void updateControls() {
       // get the current reading from the stick values
       leftDrive = Controller1.Axis3.position();
