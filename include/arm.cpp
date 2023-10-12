@@ -18,11 +18,16 @@ class Arm {
       flinger.setVelocity(100, percent);
     }
 
+
+
     void manipulatorControl() {
       // make sure the current state of the controller is up to date
       updateControls();
       // move the motors
 
+
+      shoulder.setStopping(hold);
+      elbow.setStopping(hold);
       // don't allow drift of the shoulder
       if (absoluteValue(shoulderSpin) >= 10) {
         shoulder.spin(forward);
@@ -48,9 +53,10 @@ class Arm {
 
       // fling the fling fling  
       if (fling) {
-        flinger.spin(forward, 100, percent);
-      } else if (flinger.position(degrees) >= 180) {
-        flinger.spin(reverse, 50, percent);
+        flinger.setVelocity(100, percent);
+        flinger.spinFor(forward, 365, degrees, false);
+      } else {
+        //flinger.stop();
       }
     }
 
@@ -88,7 +94,6 @@ class Arm {
       // updates the value that will fling the flinger
       fling = Controller2.ButtonA.pressing() && !flinger.isSpinning();
     }
- 
 
     // return the absolute value of a number
     double absoluteValue(double num) {

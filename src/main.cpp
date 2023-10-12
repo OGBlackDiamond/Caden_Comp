@@ -34,6 +34,149 @@
 // turret               motor         16              
 // shoulder             motor         15              
 // elbow                motor         14              
+// flinger              motor         1               
+// hooker               motor         19              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// leftDriveTrain       motor         11              
+// rightDriveTrain      motor         20              
+// Controller1          controller                    
+// Controller2          controller                    
+// turret               motor         16              
+// shoulder             motor         15              
+// elbow                motor         14              
+// flinger              motor         1               
+// hooker               motor         19              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// leftDriveTrain       motor         11              
+// rightDriveTrain      motor         20              
+// Controller1          controller                    
+// Controller2          controller                    
+// turret               motor         16              
+// shoulder             motor         15              
+// elbow                motor         14              
+// flinger              motor         1               
+// hooker               motor         19              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// leftDriveTrain       motor         11              
+// rightDriveTrain      motor         20              
+// Controller1          controller                    
+// Controller2          controller                    
+// turret               motor         16              
+// shoulder             motor         15              
+// elbow                motor         14              
+// flinger              motor         1               
+// hooker               motor         19              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// leftDriveTrain       motor         11              
+// rightDriveTrain      motor         20              
+// Controller1          controller                    
+// Controller2          controller                    
+// turret               motor         16              
+// shoulder             motor         15              
+// elbow                motor         14              
+// flinger              motor         1               
+// hooker               motor         19              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// leftDriveTrain       motor         11              
+// rightDriveTrain      motor         20              
+// Controller1          controller                    
+// Controller2          controller                    
+// turret               motor         16              
+// shoulder             motor         15              
+// elbow                motor         14              
+// flinger              motor         1               
+// hooker               motor         19              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// leftDriveTrain       motor         11              
+// rightDriveTrain      motor         20              
+// Controller1          controller                    
+// Controller2          controller                    
+// turret               motor         16              
+// shoulder             motor         15              
+// elbow                motor         14              
+// flinger              motor         1               
+// hooker               motor         19              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// leftDriveTrain       motor         11              
+// rightDriveTrain      motor         20              
+// Controller1          controller                    
+// Controller2          controller                    
+// turret               motor         16              
+// shoulder             motor         15              
+// elbow                motor         14              
+// flinger              motor         1               
+// hooker               motor         19              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// leftDriveTrain       motor         11              
+// rightDriveTrain      motor         20              
+// Controller1          controller                    
+// Controller2          controller                    
+// turret               motor         16              
+// shoulder             motor         15              
+// elbow                motor         14              
+// flinger              motor         1               
+// hooker               motor         19              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// leftDriveTrain       motor         11              
+// rightDriveTrain      motor         20              
+// Controller1          controller                    
+// Controller2          controller                    
+// turret               motor         16              
+// shoulder             motor         15              
+// elbow                motor         14              
+// flinger              motor         1               
+// hooker               motor         19              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// leftDriveTrain       motor         11              
+// rightDriveTrain      motor         20              
+// Controller1          controller                    
+// Controller2          controller                    
+// turret               motor         16              
+// shoulder             motor         15              
+// elbow                motor         14              
+// flinger              motor         1               
+// hooker               motor         19              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// leftDriveTrain       motor         11              
+// rightDriveTrain      motor         20              
+// Controller1          controller                    
+// Controller2          controller                    
+// turret               motor         16              
+// shoulder             motor         15              
+// elbow                motor         14              
 // rotGyro              inertial      10              
 // flinger              motor         1               
 // hooker               motor         19              
@@ -181,8 +324,8 @@ void autonomous(void) {
 void usercontrol(void) {
   // User control code here, inside the loop
   while (1) {
-    driver.driverControl();
     arm.manipulatorControl();
+    driver.driverControl();
     //rotationGyro.accountForSpin();
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo
