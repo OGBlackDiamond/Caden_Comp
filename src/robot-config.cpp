@@ -17,16 +17,18 @@ motor shoulder = motor(PORT15, ratio36_1, false);
 motor elbow = motor(PORT14, ratio36_1, false);
 motor flinger = motor(PORT1, ratio6_1, false);
 motor hooker = motor(PORT19, ratio18_1, false);
+inertial dir = inertial(PORT6);
 
 // VEXcode generated functions
 // define variable for remote controller enable/disable
 bool RemoteControlCodeEnabled = true;
 
 /**
- * Used to initialize code/tasks/devices added using tools in VEXcode Pro.
- * 
- * This should be called at the start of your int main function.
- */
+* Used to initialize code/tasks/devices added using tools in VEXcode Pro.
+* 
+* This should be called at the start of your int main function.
+*/
 void vexcodeInit( void ) {
-  // nothing to initialize
+    dir.calibrate(2);
+    //wait(2, seconds);
 }

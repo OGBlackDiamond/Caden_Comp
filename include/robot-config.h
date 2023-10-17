@@ -12,6 +12,7 @@ extern motor shoulder;
 extern motor elbow;
 extern motor flinger;
 extern motor hooker;
+extern inertial dir;
 
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.
