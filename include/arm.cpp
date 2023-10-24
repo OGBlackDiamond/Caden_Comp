@@ -54,7 +54,7 @@ class Arm {
             // fling the fling fling  
             if (fling) {
                 flinger.setVelocity(10, percent);
-                flinger.spinFor(forward, 365, degrees, false);
+                flinger.spinFor(reverse, 720, degrees, false);
             } else {
                 //flinger.stop();
             }
@@ -62,7 +62,7 @@ class Arm {
 
         // destroys the class object
         void destroy() {
-        delete this;
+            delete this;
         }
 
     private:

@@ -12,7 +12,6 @@ class Direction {
 
     Direction() {
       calibrate();
-      wait(2, seconds);
     }
 
     void accountForSpin() {
@@ -34,7 +33,6 @@ class Direction {
     void spinTurret() {
       turret.setVelocity(100, percent);
       turret.spinFor(forward, gyroOverflow(), degrees);
-      printf("Hello! %f", gyroOverflow());
     }
 
     void calibrate() {

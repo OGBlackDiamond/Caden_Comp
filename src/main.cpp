@@ -47,6 +47,8 @@ Driver driver;
 // the arm class
 Arm arm;
 
+class Direction;
+
 // the gyro class
 Direction direction;
 
@@ -98,9 +100,9 @@ void autonomous(void) {
 void usercontrol(void) {
   // User control code here, inside the loop
   while (1) {
+    direction.accountForSpin();
     arm.manipulatorControl();
     driver.driverControl();
-    direction.accountForSpin();
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo
     // values based on feedback from the joysticks.
