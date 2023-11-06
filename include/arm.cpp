@@ -53,7 +53,7 @@ class Arm {
 
             // fling the fling fling  
             if (fling) {
-                flinger.setVelocity(10, percent);
+                flinger.setVelocity(100, percent);
                 flinger.spinFor(reverse, 720, degrees, false);
             } else {
                 //flinger.stop();
