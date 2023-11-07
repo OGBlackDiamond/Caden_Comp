@@ -17,15 +17,18 @@ class Auto {
         }
 
         void turn(double degrees) {
+            directionType dir;
             directionType rev;
-            if (degrees == forward) {
+            if (degrees > 0) {
+                dir = forward;
                 rev = reverse;
             } else {
-                rev = reverse;
+                dir = reverse;
+                rev = forward;
             }
 
             rightDriveTrain.spinFor(dir, degrees, turns, false);
-            lefttDriveTrain.spinFor(rev, degrees, turns);
+            leftDriveTrain.spinFor(rev, degrees, turns);
         }
     private:
 

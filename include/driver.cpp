@@ -18,15 +18,6 @@ class Driver {
       // spin the motors
       leftDriveTrain.spin(forward);
       rightDriveTrain.spin(forward);
-
-      // control the hook
-      if (hookUp) {
-        hooker.spin(forward);
-      } else if (hookDown) {
-        hooker.spin(reverse);
-      } else {
-        hooker.stop();
-      }
     }
 
     // destroys the class object
@@ -51,9 +42,5 @@ class Driver {
       // apply them to the current motor velocity
       leftDriveTrain.setVelocity(leftDrive, percent);
       rightDriveTrain.setVelocity(rightDrive, percent);
-
-      // determine the hook controls
-      hookUp = Controller1.ButtonUp.pressing();
-      hookDown = Controller1.ButtonDown.pressing();
     }
 };
