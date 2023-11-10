@@ -34,7 +34,7 @@
 #include "vex.h"
 #include "driver.cpp"
 #include "arm.cpp"
-//#include "direction.cpp"
+#include "direction.cpp"
 
 using namespace vex;
 
@@ -48,7 +48,7 @@ Driver driver;
 Arm arm;
 
 // the gyro class
-//Direction direction;
+Direction direction;
 
 // define your global instances of motors and other devices here
 
@@ -98,9 +98,10 @@ void autonomous(void) {
 void usercontrol(void) {
   // User control code here, inside the loop
   while (1) {
-    //direction.accountForSpin();
-    driver.driverControl();
+    direction.accountForSpin();
     arm.manipulatorControl();
+    driver.driverControl();
+
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo
     // values based on feedback from the joysticks.

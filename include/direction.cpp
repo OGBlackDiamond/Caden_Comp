@@ -37,15 +37,14 @@ class Direction {
 
     void calibrate() {
       dir.calibrate();
+      wait(2, seconds)
     }
 
     double gyroOverflow() {
       double rotationValue = relativeSpin - previousRelativeSpin;
-      // if (rotationValue > 340) {
-      //   rotationValue -= 360;
-      // } else if (rotationValue < -340) {
-      //   rotationValue += 360;
-      // }
+      if (absoluteValue(rotationValue) > 180) {
+        rotationValue -= 360;
+      }
 
       return rotationValue;
     }

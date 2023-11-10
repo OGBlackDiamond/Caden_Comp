@@ -12,10 +12,11 @@ class Arm {
 
         // set the stopping values and speeds of all the motors
         Arm() {
-            turret.setVelocity(1, percent);
+            turret.setVelocity(100, percent);
+            terret.setStopping(hold);
             shoulder.setStopping(hold);
             elbow.setStopping(hold);
-            flinger.setVelocity(100, percent);
+            flinger.setVelocity(600, rpm);
         }
 
 
@@ -51,12 +52,21 @@ class Arm {
                 turret.stop();
             }
 
+            // operate the hand
+            if (openHand) {
+                hand.spin(reverse);
+            } else if (closeHand) {
+                hand.spin(forward);
+            } else {
+                hand.stop();
+            }
+
             // fling the fling fling  
             if (fling) {
                 flinger.setVelocity(100, percent);
-                flinger.spinFor(reverse, 720, degrees, false);
+                flinger.spinFor(reverse, 720, degrees);
             } else {
-                //flinger.stop();
+                flinger.stop();
             }
         }
 
@@ -80,11 +90,18 @@ class Arm {
         // value to fling the flinger
         bool fling;
 
+        // values that open and close the hand
+        bool openHand;
+        bool closeHand;
+
         // update all of the controller values
         void updateControls() {
             // updates the values that will spin the turret
             spinTurretLeft = Controller2.ButtonL2.pressing();
             spinTurretRight = Controller2.ButtonR2.pressing();
+            // updates the values to open and close the hand
+            openHand = Controller2.ButtonX.pressing();
+            closeHand = Controller2.ButtonB.pressing();
             // updates the stick values that will control the arm
             elbowSpin = Controller2.Axis3.position();
             shoulderSpin = Controller2.Axis2.position();

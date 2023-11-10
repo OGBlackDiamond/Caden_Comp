@@ -12,6 +12,7 @@ extern motor shoulder;
 extern motor elbow;
 extern motor flinger;
 extern motor hooker;
+extern motor hand;
 extern inertial dir;
 
 /**
