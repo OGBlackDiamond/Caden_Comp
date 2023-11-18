@@ -34,7 +34,8 @@
 #include "vex.h"
 #include "driver.cpp"
 #include "arm.cpp"
-#include "direction.cpp"
+//#include "direction.cpp"
+//#include "auto.cpp"
 
 using namespace vex;
 
@@ -47,10 +48,44 @@ Driver driver;
 // the arm class
 Arm arm;
 
+// toggle variables have to be defined globally for some reason
+bool flingerToggle = false;
+bool armToggle = false;
+
 // the gyro class
-Direction direction;
+//Direction direction;
+
+// the autonomous class
+//Auto autoClass;
 
 // define your global instances of motors and other devices here
+
+
+
+
+// other functions
+
+// function that toggles the flinger
+void toggleFlinger() {
+  flingerToggle = !flingerToggle;
+}
+
+// function that toggles the arm speed
+void toggleArm() {
+  armToggle = !armToggle;
+}
+
+// sets the toggle functions
+void setToggles() {
+    // toggles the flinger if the A button is pressed
+    Controller2.ButtonA.pressed(toggleFlinger);
+    Controller2.ButtonL1.pressed(toggleArm);
+    Controller2.ButtonR1.pressed(toggleArm);
+}
+
+
+
+
 
 /*---------------------------------------------------------------------------*/
 /*                          Pre-Autonomous Functions                         */
@@ -97,9 +132,10 @@ void autonomous(void) {
 
 void usercontrol(void) {
   // User control code here, inside the loop
+  setToggles();
   while (1) {
-    direction.accountForSpin();
-    arm.manipulatorControl();
+    //direction.accountForSpin();
+    arm.manipulatorControl(armToggle, flingerToggle);
     driver.driverControl();
 
     // This is the main execution loop for the user control program.
@@ -132,4 +168,3 @@ int main() {
     wait(100, msec);
   }
 }
-

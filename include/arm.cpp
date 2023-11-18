@@ -13,22 +13,16 @@ class Arm {
         // set the stopping values and speeds of all the motors
         Arm() {
             turret.setVelocity(100, percent);
-            terret.setStopping(hold);
-            shoulder.setStopping(hold);
-            elbow.setStopping(hold);
-            flinger.setVelocity(600, rpm);
+            flinger.setVelocity(100, percent);
         }
 
 
 
-        void manipulatorControl() {
+        void manipulatorControl(bool armToggle, bool flingerToggle) {
             // make sure the current state of the controller is up to date
             updateControls();
             // move the motors
 
-
-            shoulder.setStopping(hold);
-            elbow.setStopping(hold);
             // don't allow drift of the shoulder
             if (absoluteValue(shoulderSpin) >= 10) {
                 shoulder.spin(forward);
@@ -62,13 +56,14 @@ class Arm {
             }
 
             // fling the fling fling  
-            if (fling) {
-                flinger.setVelocity(100, percent);
-                flinger.spinFor(reverse, 720, degrees);
+            if (flingerToggle) {
+                flinger.spin(forward);
             } else {
                 flinger.stop();
             }
         }
+
+
 
         // destroys the class object
         void destroy() {
@@ -87,15 +82,15 @@ class Arm {
         // the value to articulate the elbow
         int elbowSpin;
 
-        // value to fling the flinger
-        bool fling;
-
         // values that open and close the hand
         bool openHand;
         bool closeHand;
 
         // update all of the controller values
         void updateControls() {
+            turret.setStopping(hold);
+            shoulder.setStopping(hold);
+            elbow.setStopping(hold);
             // updates the values that will spin the turret
             spinTurretLeft = Controller2.ButtonL2.pressing();
             spinTurretRight = Controller2.ButtonR2.pressing();
@@ -108,8 +103,6 @@ class Arm {
             // spins the motors accordingly
             elbow.setVelocity(elbowSpin, percent);
             shoulder.setVelocity(shoulderSpin, percent);
-            // updates the value that will fling the flinger
-            fling = Controller2.ButtonA.pressing() && !flinger.isSpinning();
         }
 
         // return the absolute value of a number

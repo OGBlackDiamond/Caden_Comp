@@ -11,25 +11,26 @@ class Auto {
     public:
         Auto() {}
 
-        void move (directionType dir, double distance) {
-            rightDriveTrain.spinFor(dir, disance, turns, false);
-            lefttDriveTrain.spinFor(dir, disance, turns);
+        void move (double distance) {
+            rightDriveTrain.spinFor(forward, disance, turns, false);
+            lefttDriveTrain.spinFor(forward, disance, turns);
         }
 
         void turn(double degrees) {
-            directionType dir;
-            directionType rev;
-            if (degrees > 0) {
-                dir = forward;
-                rev = reverse;
-            } else {
-                dir = reverse;
-                rev = forward;
-            }
-
-            rightDriveTrain.spinFor(dir, degrees, turns, false);
+            rightDriveTrain.spinFor(dir, degrees * -1, turns, false);
             leftDriveTrain.spinFor(rev, degrees, turns);
         }
-    private:
+
+        void turnTurret(double deg) {
+            turret.spinFor(forward, deg, degrees);
+        }
+
+        void moveShoulder(double deg) {
+            shoulder.spinFor(forward, deg, degreees);
+        }
+
+        void moveElbow(double deg) {
+            elbow.spinFor(forward, deg, degreees);
+        }
 
 }
