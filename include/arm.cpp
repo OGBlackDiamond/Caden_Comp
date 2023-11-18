@@ -17,10 +17,10 @@ class Arm {
         }
 
 
-
-        void manipulatorControl(bool armToggle, bool flingerToggle) {
+        // the main function that handles the arm control
+        void manipulatorControl(bool armToggle, bool armHoldToggle,  bool flingerToggle) {
             // make sure the current state of the controller is up to date
-            updateControls();
+            updateControls(armToggle, armHoldToggle);
             // move the motors
 
             // don't allow drift of the shoulder
@@ -87,10 +87,10 @@ class Arm {
         bool closeHand;
 
         // update all of the controller values
-        void updateControls() {
-            turret.setStopping(hold);
-            shoulder.setStopping(hold);
-            elbow.setStopping(hold);
+        void updateControls(bool armToggle, bool armHoldToggle) {
+            turret.setStopping(armHoldToggle ? coast : hold);
+            shoulder.setStopping(armHoldToggle ? coast : hold);
+            elbow.setStopping(armHoldToggle ? coast : hold);
             // updates the values that will spin the turret
             spinTurretLeft = Controller2.ButtonL2.pressing();
             spinTurretRight = Controller2.ButtonR2.pressing();
@@ -98,8 +98,8 @@ class Arm {
             openHand = Controller2.ButtonX.pressing();
             closeHand = Controller2.ButtonB.pressing();
             // updates the stick values that will control the arm
-            elbowSpin = Controller2.Axis3.position();
-            shoulderSpin = Controller2.Axis2.position();
+            elbowSpin = armToggle ? Controller2.Axis3.position() / 2 : Controller2.Axis3.position();
+            shoulderSpin = armToggle ? Controller2.Axis2.position() / 2 : Controller2.Axis2.position();
             // spins the motors accordingly
             elbow.setVelocity(elbowSpin, percent);
             shoulder.setVelocity(shoulderSpin, percent);

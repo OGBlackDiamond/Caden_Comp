@@ -12,9 +12,9 @@ class Driver {
 
     Driver() {}
 
-    void driverControl() {
+    void driverControl(bool toggleDriveTrain) {
       // refresh control stick values
-      updateControls();
+      updateControls(toggleDriveTrain);
       // spin the motors
       leftDriveTrain.spin(forward);
       rightDriveTrain.spin(forward);
@@ -35,10 +35,10 @@ class Driver {
     bool hookDown;
 
     // update the controller values 
-    void updateControls() {
+    void updateControls(bool driveTrainToggle) {
       // get the current reading from the stick values
-      leftDrive = Controller1.Axis3.position();
-      rightDrive = Controller1.Axis2.position();
+      leftDrive = driveTrainToggle ? Controller1.Axis3.position() * 0.75 : Controller1.Axis3.position();
+      rightDrive = driveTrainToggle ? Controller1.Axis2.position() * 0.75 : Controller1.Axis2.position();
       // apply them to the current motor velocity
       leftDriveTrain.setVelocity(leftDrive, percent);
       rightDriveTrain.setVelocity(rightDrive, percent);

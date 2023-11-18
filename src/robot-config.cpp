@@ -8,15 +8,15 @@ using code = vision::code;
 brain  Brain;
 
 // VEXcode device constructors
-motor leftDriveTrain = motor(PORT8, ratio18_1, false);
-motor rightDriveTrain = motor(PORT12, ratio18_1, true);
+motor leftDriveTrain = motor(PORT20, ratio18_1, true);
+motor rightDriveTrain = motor(PORT4, ratio18_1, false);
 controller Controller1 = controller(primary);
 controller Controller2 = controller(partner);
-motor turret = motor(PORT19, ratio18_1, false);
+motor turret = motor(PORT18, ratio18_1, false);
 motor shoulder = motor(PORT2, ratio36_1, false);
-motor elbow = motor(PORT20, ratio36_1, false);
+motor elbow = motor(PORT1, ratio36_1, true);
 motor flinger = motor(PORT10, ratio36_1, false);
-motor hand = motor(PORT9, ratio18_1, true);
+motor hand = motor(PORT9, ratio18_1, false);
 inertial dir = inertial(PORT11);
 
 // VEXcode generated functions

@@ -35,7 +35,7 @@
 #include "driver.cpp"
 #include "arm.cpp"
 //#include "direction.cpp"
-//#include "auto.cpp"
+#include "auto.cpp"
 
 using namespace vex;
 
@@ -48,15 +48,18 @@ Driver driver;
 // the arm class
 Arm arm;
 
-// toggle variables have to be defined globally for some reason
-bool flingerToggle = false;
-bool armToggle = false;
-
 // the gyro class
 //Direction direction;
 
 // the autonomous class
-//Auto autoClass;
+Auto autoClass;
+
+
+// toggle variables have to be defined globally for some reason
+bool flingerToggle = false;
+bool armToggle = false;
+bool armHoldToggle = false;
+bool driveTrainToggle = false;
 
 // define your global instances of motors and other devices here
 
@@ -75,12 +78,24 @@ void toggleArm() {
   armToggle = !armToggle;
 }
 
+// function that toggles whether the arm will hold iteself up or not
+// this is because the arm sometimes draws too much power, and limits the drivetrain.
+void toggleArmHold() {
+  armHoldToggle = !armHoldToggle;
+}
+
+void toggleDriveTrain() {
+  driveTrainToggle = !driveTrainToggle;
+}
+
 // sets the toggle functions
 void setToggles() {
     // toggles the flinger if the A button is pressed
     Controller2.ButtonA.pressed(toggleFlinger);
     Controller2.ButtonL1.pressed(toggleArm);
     Controller2.ButtonR1.pressed(toggleArm);
+    Controller1.ButtonA.pressed(toggleArmHold);
+    Controller1.ButtonB.pressed(toggleDriveTrain);
 }
 
 
@@ -118,6 +133,8 @@ void autonomous(void) {
   // ..........................................................................
   // Insert autonomous user code here.
   // ..........................................................................
+
+  //autoClass.auto2();
 }
 
 /*---------------------------------------------------------------------------*/
@@ -132,11 +149,13 @@ void autonomous(void) {
 
 void usercontrol(void) {
   // User control code here, inside the loop
+
+  // sets all toggle values 
   setToggles();
   while (1) {
     //direction.accountForSpin();
-    arm.manipulatorControl(armToggle, flingerToggle);
-    driver.driverControl();
+    arm.manipulatorControl(armToggle, armHoldToggle, flingerToggle);
+    driver.driverControl(driveTrainToggle);
 
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo

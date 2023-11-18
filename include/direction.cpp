@@ -10,9 +10,7 @@ class Direction {
 
   public:
 
-    Direction() {
-      calibrate();
-    }
+    Direction() {}
 
     void accountForSpin() {
       updateRotation();
